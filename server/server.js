@@ -7,8 +7,6 @@ const User = require('./model/User')
 require('dotenv').config()
 
 const app = express();
-const PORT = process.env.PORT || 5000;
-console.log('Port:', process.env.PORT);
 
 //Middleware
 app.use(bodyParser.json());
