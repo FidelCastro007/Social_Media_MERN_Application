@@ -17,7 +17,7 @@ export const DataProvider = ({children}) => {
   const [editBody, setEditBody] = useState('');
   const navigate = useNavigate()
   const {width} = useWindowSize()
-  const {data, fetchError, isLoading} = useAxiosFetch('http://localhost:5000/api/posts')
+  const {data, fetchError, isLoading} = useAxiosFetch('${REACT_APP_BACKEND_URL}/api/posts')
 
 
   useEffect (() => {
