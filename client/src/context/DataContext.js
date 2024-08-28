@@ -4,6 +4,7 @@ import {useNavigate } from "react-router-dom";
 import api from "../api/posts"
 import useWindowSize from "../hooks/useWindowSize";
 import useAxiosFetch from "../hooks/useAxiosFetch";
+require('dotenv').config()
 
 const DataContext = createContext({}) 
 
