@@ -29,7 +29,7 @@ connectDB();
 //Routes
 
 //Get USER_POST Route
-app.use('api/posts',require('./Router/routePost'))
+app.use('/api/posts',require('./Router/routePost'))
 
 // Start Server
 app.listen(PORT, () => {
