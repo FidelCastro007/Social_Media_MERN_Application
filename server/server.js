@@ -12,7 +12,11 @@ console.log('Port:', process.env.PORT);
 
 //Middleware
 app.use(bodyParser.json());
-app.use(cors());
+app.use(cors({
+  origin: 'https://social-media-mern-i5f4.onrender.com', // Allow your frontend domain
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allow specific methods if needed
+  credentials: true, // If you need to send cookies or authentication information
+}));
 
 connectDB();
 
