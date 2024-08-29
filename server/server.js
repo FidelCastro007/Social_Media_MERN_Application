@@ -19,10 +19,9 @@ app.use(cors({
 }));
 
 app.use((req, res, next) => {
-  res.setHeader("Content-Security-Policy", "default-src 'self'; script-src 'self' blob:;");
+  res.setHeader("Content-Security-Policy", "default-src 'self'; script-src 'self' 'unsafe-inline' blob:;");
   next();
 });
-
 
 connectDB();
 
