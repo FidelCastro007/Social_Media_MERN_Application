@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 const userSchema = new mongoose.Schema({
     id:{
         type: Number,
-        required: true,
         unique: true
     },
     title:{
@@ -11,8 +10,7 @@ const userSchema = new mongoose.Schema({
         required: true
     },
     datetime:{
-        type: String,
-        required: true
+        type: String
     },
     body:{
         type: String,
