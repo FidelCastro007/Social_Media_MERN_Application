@@ -37,7 +37,7 @@ export const DataProvider = ({children}) => {
     const datetime = format(new Date(), 'MMMM dd, yyyy pp')
     const newPost = { id, title:postTitle, datetime,body: postBody};
     try{
-    const response = await api.post('api/posts', newPost)
+    const response = await api.post('/api/posts', newPost)
     const allPosts = [...posts,response.data]
     setPosts(allPosts);
     setPostTitle('')
@@ -59,7 +59,7 @@ export const DataProvider = ({children}) => {
     const datetime = format(new Date(), 'MMMM dd, yyyy pp')
     const updatedPost = { id, title: editTitle, datetime,body:editBody}
     try{
-      const response = await api.put(`api/posts/${id}`,updatedPost)
+      const response = await api.put(`/api/posts/${id}`,updatedPost)
       setPosts(posts.map(post => post.id === id ? {...response.data}: post))
       setEditTitle('')
       setEditBody('')
@@ -70,7 +70,7 @@ export const DataProvider = ({children}) => {
   }
   const handleDelete = async(id) => {
     try{
-      await api.delete(`api/posts/${id}`)
+      await api.delete(`/api/posts/${id}`)
     const postsList = posts.filter(post => post.id !== id);
     setPosts(postsList)
     navigate('/')
@@ -78,7 +78,8 @@ export const DataProvider = ({children}) => {
     console.log(`Error: ${err.message}`)
   }
   }
-    return (                         //Common values are efficient in useContext but single or rarely using values can use in thier usable components not in this hook //
+    //Common values are efficient in useContext but single or rarely using values can use in thier usable components not in this hook //
+    return (                         
         <DataContext.Provider value ={{ 
             width, search, setSearch,searchResults,fetchError, isLoading,handleSubmit, postTitle, setPostTitle, postBody,setPostBody,posts, handleEdit, editBody, setEditBody,editTitle, setEditTitle, handleDelete
 
