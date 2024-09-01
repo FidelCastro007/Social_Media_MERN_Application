@@ -18,11 +18,6 @@ app.use(cors({
   credentials: true, // If you need to send cookies or authentication information
 }));
 
-app.use((req, res, next) => {
-  res.setHeader("Content-Security-Policy", "default-src 'self'; script-src 'self' 'unsafe-inline' blob:;");
-  next();
-});
-
 connectDB();
 
 //Routes
