@@ -18,6 +18,11 @@ app.use(cors({
   credentials: true, // If you need to send cookies or authentication information
 }));
 
+app.use((req, res, next) => {
+  res.setHeader("Content-Security-Policy", "default-src 'self'; connect-src 'self' https://www.google-analytics.com; script-src 'self' https://www.google-analytics.com; img-src 'self' https://www.google-analytics.com; style-src 'self' 'unsafe-inline';");
+  next();
+});
+
 connectDB();
 
 //Routes
