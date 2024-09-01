@@ -18,9 +18,21 @@ app.use(cors({
   credentials: true, // If you need to send cookies or authentication information
 }));
 
+// CSP Middleware
 app.use((req, res, next) => {
-  res.setHeader("Content-Security-Policy", "default-src 'self'; connect-src 'self' https://www.google-analytics.com; script-src 'self' https://www.google-analytics.com; img-src 'self' https://www.google-analytics.com; style-src 'self' 'unsafe-inline';");
+  res.setHeader("Content-Security-Policy", 
+    "default-src 'self'; " +
+    "connect-src 'self' https://www.google-analytics.com; " +
+    "script-src 'self' https://www.google-analytics.com; " +
+    "img-src 'self' https://www.google-analytics.com; " +
+    "style-src 'self' 'unsafe-inline';"
+  );
   next();
+});
+
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send('Something went wrong!');
 });
 
 connectDB();
