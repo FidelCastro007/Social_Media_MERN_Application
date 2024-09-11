@@ -8,7 +8,13 @@
     "start": "node server.js",
     "dev": "nodemon server.js"
   },
-  "keywords": [["mern", "backend", "express", "mongodb", "mongoose"],
+  "keywords": [
+    "mern",
+    "backend",
+    "express",
+    "mongodb",
+    "mongoose"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
